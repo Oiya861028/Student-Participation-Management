@@ -25,7 +25,20 @@ public class Student {
     public double getGPA(){
         return gpa;
     }
+    public int getGradeLevel(){return gradeLevel;}
+    public boolean getLike_CS(){return like_CS;}
     public void add_participation(int grades){
-        participation_grade[gradeCounter] = grades;
+        if(gradeCounter<10){
+            participation_grade[gradeCounter] = grades;
+            gradeCounter++;
+        }
+        if(gradeCounter==10) gradeCounter=0;
+    }
+    public double getAverage(){
+        int sum =0;
+        for(int i=0;i<participation_grade.length;i++){
+            sum+= participation_grade[i];
+        }
+        return sum/participation_grade.length;
     }
 }
